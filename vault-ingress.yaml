@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: vaulting
+  namespace: default
+spec:
+  rules:
+  - host: vault.gtslabs.ibm.com
+    http:
+      paths:
+      - backend:
+          serviceName: vault
+          servicePort: 8200
+        path: /
+status:
+  loadBalancer:
+    ingress:
+    - ip: 192.168.20.41  
