@@ -1,0 +1,18 @@
+{
+  "CN": "server.dc1.gtslabs.ibm.com",
+  "hosts": [
+    "server.dc1.gtslabs.ibm.com",
+    "127.0.0.1"
+  ],
+  "key": {
+    "algo": "rsa",
+    "size": 2048
+  },
+  "names": [
+    {
+      "C": "IN",
+      "ST": "Karnataka",
+      "L": "Bangalore"
+    }
+  ]
+}

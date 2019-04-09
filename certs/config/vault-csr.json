@@ -1,0 +1,21 @@
+{
+  "CN": "vault.vault.gtslabs.ibm.com",
+  "hosts": [
+    "vault",
+    "127.0.0.1",
+    "192.168.20.41"
+  ],
+  "key": {
+    "algo": "rsa",
+    "size": 2048
+  },
+  "names": [
+    {
+      "C": "IN",
+      "ST": "Karnataka",
+      "L": "Bangalore"
+    }
+  ]
+}
+
+

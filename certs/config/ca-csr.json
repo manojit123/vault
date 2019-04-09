@@ -1,0 +1,16 @@
+{
+  "hosts": [
+    "gtslabs.ibm.com"
+  ],
+  "key": {
+    "algo": "rsa",
+    "size": 2048
+  },
+  "names": [
+    {
+      "C": "IN",
+      "ST": "Karnataka",
+      "L": "Bangalore"
+    }
+  ]
+}
