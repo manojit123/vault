@@ -43,7 +43,8 @@ kubectl create configmap consul --from-file=consul/config.json
 Create the Service:
 kubectl create -f consul/service.yaml
 
-Create persistent volumes: ( We used NFS and created 3 directory as exported volumes towards worker nodes)
+Create persistent volumes: 
+
 kubectl create -f consul/pv_consul0.yaml
 kubectl create -f consul/pv_consul1.yaml
 kubectl create -f consul/pv_consul2.yaml
@@ -55,6 +56,7 @@ Forward the port to the local machine:
 kubectl port-forward consul-1 8500:8500 &
 
 Ensure that all members are alive:
+
 $ consul members
 Handling connection for 8500
 Node      Address            Status  Type    Build  Protocol  DC   Segment
@@ -104,6 +106,17 @@ $ vault kv put secret/precious foo=bar
 
 Read:
 $ vault kv get secret/precious
+
+
+Deploy in a single step:
+=======================
+
+./create.sh
+
+Clean UP:
+=========
+
+./cleanup.sh
 
 
 
