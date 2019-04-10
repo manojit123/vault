@@ -34,8 +34,8 @@ kubectl create -f consul/service.yaml
 
 echo "Creating the Consul Persitent Volumes.."
 
-kubectl create -f consul/pv_consul0.yaml 
-kubectl create -f consul/pv_consul1.yaml 
+kubectl create -f consul/pv_consul0.yaml
+kubectl create -f consul/pv_consul1.yaml
 kubectl create -f consul/pv_consul2.yaml
 
 echo "Creating the Consul StatefulSet..."
@@ -78,4 +78,3 @@ kubectl apply -f vault/deployment.yaml
 
 
 echo "All done! ..."
-
