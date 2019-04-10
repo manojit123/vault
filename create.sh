@@ -1,5 +1,13 @@
 #!/bin/bash
 
+echo "Creating CA , TLS and Private Key..."
+
+cfssl gencert -initca certs/config/ca-csr.json | cfssljson -bare certs/ca
+
+cfssl gencert -ca=certs/ca.pem -ca-key=certs/ca-key.pem -config=certs/config/ca-config.json -profile=default certs/config/consul-csr.json | cfssljson -bare certs/consul
+
+cfssl gencert -ca=certs/ca.pem -ca-key=certs/ca-key.pem -config=certs/config/ca-config.json -profile=default certs/config/vault-csr.json | cfssljson -bare certs/vault
+
 
 echo "Generating the Gossip encryption key..."
 
@@ -34,6 +42,17 @@ echo "Creating the Consul StatefulSet..."
 
 kubectl create -f consul/statefulset.yaml
 
+POD=$(kubectl get pods -o=name | grep consul | sed "s/^.\{4\}//")
+
+while true; do
+  STATUS=$(kubectl get pods ${POD} -o jsonpath="{.status.phase}")
+  if [ "$STATUS" == "Running" ]; then
+    break
+  else
+    echo "Pod status is: ${STATUS}"
+    sleep 5
+  fi
+done
 
 echo "Creating a Secret to store the Vault TLS certificates..."
 
