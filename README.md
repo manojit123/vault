@@ -58,6 +58,7 @@ kubectl port-forward consul-1 8500:8500 &
 Ensure that all members are alive:
 
 $ consul members
+
 Handling connection for 8500
 Node      Address            Status  Type    Build  Protocol  DC   Segment
 consul-0  10.1.230.240:8301  alive   server  1.4.0  2         dc1  <all>
